@@ -169,13 +169,13 @@ with st.sidebar:
         st.markdown("#### Data preview")
         st.dataframe(df.head())
         
-        group = st.radio("Group", options=df["Group"].unique())
+        group = st.radio("Group", options=df["group"].unique())
 
         if group:
             control = group
-            treatment = df["Group"].unique()[1] if control == df["Group"].unique()[0] else df["Group"].unique()[0]
-            visitors_a = df["Group"].value_counts()[control]
-            visitors_b = df["Group"].value_counts()[treatment]
+            treatment = df["group"].unique()[1] if control == df["Group"].unique()[0] else df["Group"].unique()[0]
+            visitors_a = df["group"].value_counts()[control]
+            visitors_b = df["group"].value_counts()[treatment]
 
 #         ab = st.multiselect("A/B column", options=df.columns)
 #         if ab:
