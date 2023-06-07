@@ -55,42 +55,4 @@ ax.set_ylabel("Conversion Rate")
 ax.set_title("A/B Test Conversion Rates")
 st.pyplot(fig)
 
-# col1, col2 = st.beta_columns(2)
-# with col1:
-#     st.metric("Control Conversion Rate", f"{control_conversion_rate:.2%}")
-# with col2:
-#     st.metric("Treatment Conversion Rate", f"{treatment_conversion_rate:.2%}")
-
-st.markdown("---")
-
-# Display statistical significance
-st.metric("Z-Score", f"{z_score:.2f}")
-st.metric("P-Value", f"{p_value:.4f}")
-
-# Visualize conversion rates
-labels = ["Control", "Treatment"]
-conversion_rates = [control_conversion_rate, treatment_conversion_rate]
-fig, ax = plt.subplots()
-ax.bar(labels, conversion_rates, color=["skyblue", "lightgreen"])
-ax.set_ylim([0, max(conversion_rates) * 1.2])
-ax.set_ylabel("Conversion Rate")
-ax.set_title("A/B Test Conversion Rates")
-st.pyplot(fig)
-
-st.markdown("---")
-
-# Display statistical significance
-st.metric("Z-Score", f"{z_score:.2f}")
-st.metric("P-Value", f"{p_value:.4f}")
-
-# Visualize conversion rates
-labels = ["Control", "Treatment"]
-conversion_rates = [control_cr, treatment_cr]
-fig, ax = plt.subplots()
-ax.bar(labels, conversion_rates, color=["skyblue", "lightgreen"])
-ax.set_ylim([0, max(conversion_rates) * 1.2])
-ax.set_ylabel("Conversion Rate")
-ax.set_title("A/B Test Conversion Rates")
-st.pyplot(fig)
-
 
