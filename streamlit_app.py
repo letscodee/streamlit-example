@@ -31,11 +31,11 @@ z_score, p_value = proportions_ztest([np.sum(group_1), np.sum(group_2)], [contro
 st.subheader("A/B Test Results")
 
 # Display conversion rates
-col1, col2 = st.beta_columns(2)
-with col1:
-    st.metric("Control Conversion Rate", f"{control_conversion_rate:.2%}")
-with col2:
-    st.metric("Treatment Conversion Rate", f"{treatment_conversion_rate:.2%}")
+# col1, col2 = st.beta_columns(2)
+# with col1:
+#     st.metric("Control Conversion Rate", f"{control_conversion_rate:.2%}")
+# with col2:
+#     st.metric("Treatment Conversion Rate", f"{treatment_conversion_rate:.2%}")
 
 st.markdown("---")
 
