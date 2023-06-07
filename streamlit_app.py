@@ -221,7 +221,7 @@ if submit:
         st.session_state.alpha,
     )
 
-    mcol1, mcol2 = st.beta_columns(2)
+    mcol1, mcol2 = st.columns(2)
 
     with mcol1:
         st.metric(
