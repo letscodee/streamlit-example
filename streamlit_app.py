@@ -27,6 +27,13 @@ treatment_sample_size = len(group_2)
 # Calculate statistical significance
 z_score, p_value = proportions_ztest([np.sum(group_1), np.sum(group_2)], [control_sample_size, treatment_sample_size])
 
+control_data = np.random.binomial(1, control_conversion_rate / 100, control_sample_size)
+treatment_data = np.random.binomial(1, treatment_conversion_rate / 100, treatment_sample_size)
+
+# Calculate conversion rates
+control_cr = np.mean(control_data)
+treatment_cr = np.mean(treatment_data)
+
 # Display results
 st.subheader("A/B Test Results")
 
