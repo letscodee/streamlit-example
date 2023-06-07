@@ -168,16 +168,24 @@ with st.sidebar:
 
         st.markdown("#### Data preview")
         st.dataframe(df.head())
+        
+        group = st.radio("Group", options=df["Group"].unique())
 
-        ab = st.multiselect("A/B column", options=df.columns)
-        if ab:
-            control = df[ab[0]].unique()[0]
-            treatment = df[ab[0]].unique()[1]
-            decide = st.radio(f"Is {treatment} Variant B?", options=["Yes", "No"])
-            if decide == "No":
-                control, treatment = treatment, control
-            visitors_a = df[ab[0]].value_counts()[control]
-            visitors_b = df[ab[0]].value_counts()[treatment]
+        if group:
+            control = group
+            treatment = df["Group"].unique()[1] if control == df["Group"].unique()[0] else df["Group"].unique()[0]
+            visitors_a = df["Group"].value_counts()[control]
+            visitors_b = df["Group"].value_counts()[treatment]
+
+#         ab = st.multiselect("A/B column", options=df.columns)
+#         if ab:
+#             control = df[ab[0]].unique()[0]
+#             treatment = df[ab[0]].unique()[1]
+#             decide = st.radio(f"Is {treatment} Variant B?", options=["Yes", "No"])
+#             if decide == "No":
+#                 control, treatment = treatment, control
+#             visitors_a = df[ab[0]].value_counts()[control]
+#             visitors_b = df[ab[0]].value_counts()[treatment]
 
         result = st.multiselect("Result column", options=df.columns)
 
