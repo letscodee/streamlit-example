@@ -168,14 +168,14 @@ with st.sidebar:
 
         st.markdown("#### Data preview")
         st.dataframe(df.head())
-        group_options = df["Group"].dropna().unique()
-        group = st.radio("Group", options=group_options)
+        group_options = df["group"].dropna().unique()
+        group = st.radio("group", options=group_options)
 
         if group:
             control = group
             treatment = next(iter(set(group_options) - {control}), None)
-            visitors_a = df["Group"].value_counts().get(control, 0)
-            visitors_b = df["Group"].value_counts().get(treatment, 0)
+            visitors_a = df["group"].value_counts().get(control, 0)
+            visitors_b = df["group"].value_counts().get(treatment, 0)
 
 #         ab = st.multiselect("A/B column", options=df.columns)
 #         if ab:
