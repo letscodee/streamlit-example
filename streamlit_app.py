@@ -1,6 +1,7 @@
 import streamlit as st
 import numpy as np
-from scipy.stats import proportions_ztest
+from statsmodels.stats.proportion import proportions_ztest
+
 import matplotlib.pyplot as plt
 
 # Page title and layout
