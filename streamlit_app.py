@@ -29,15 +29,29 @@ control_cr = np.mean(group_1)
 treatment_cr = np.mean(group_2)
 z_score, p_value = proportions_ztest([np.sum(group_1), np.sum(group_2)], [control_sample_size, treatment_sample_size])
 
-# Display results
+# Display data divided into two groups
+st.subheader("Data Divided into Two Groups")
+
+col1, col2 = st.columns(2)
+with col1:
+    st.write("**Control Group (Group 1):**")
+    st.write(group_1)
+
+with col2:
+    st.write("**Treatment Group (Group 2):**")
+    st.write(group_2)
+
+st.markdown("---")
+
+# Display A/B test results
 st.subheader("A/B Test Results")
 
 # Display conversion rates
-# col1, col2 = st.beta_columns(2)
-# with col1:
-#     st.metric("Control Conversion Rate", f"{control_cr:.2%}")
-# with col2:
-#     st.metric("Treatment Conversion Rate", f"{treatment_cr:.2%}")
+col3, col4 = st.columns(2)
+with col3:
+    st.metric("Control Conversion Rate", f"{control_cr:.2%}")
+with col4:
+    st.metric("Treatment Conversion Rate", f"{treatment_cr:.2%}")
 
 st.markdown("---")
 
@@ -54,5 +68,3 @@ ax.set_ylim([0, max(conversion_rates) * 1.2])
 ax.set_ylabel("Conversion Rate")
 ax.set_title("A/B Test Conversion Rates")
 st.pyplot(fig)
-
-
